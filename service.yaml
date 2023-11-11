@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hailoride-web-service
+spec:
+  selector:
+    app: hailoride-web
+  ports:
+  - port: 3000
+    targetPort: 3000

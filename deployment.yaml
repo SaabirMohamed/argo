@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metedata:
+  name: hailoride-web-deployment
+  namespace: hailoride-ns
+spec:
+  selector:
+    matchlabels:
+      app: hailoride-web
+  replicas: 2
+  template:
+    metadata: 
+      lables:
+        app: hailoride-web
+    spec:
+      containers:
+        - name: hailoride-web
+          images: saabirgmohamed/njs14:0.0.1
+          ports:
+            - containerPort: 3000

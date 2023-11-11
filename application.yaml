@@ -1,0 +1,25 @@
+apiVersion: argproj/io/v1alpha1
+kind: Application
+metadata:
+  name: hailoride-web-argo-application
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoUrl: http://github.com/saabirgmohamed/argo.git
+    targetRevistion: HEAD
+    path: dev
+  destination:
+     server: https://kubernetes.default.service
+     namespace: hailoride-web-ns
+
+  syncPolicy:
+    syncOptions:
+      - CreateNameSpace=true
+    automated:
+      selfHeal: true
+      prune: true
+
+
+
